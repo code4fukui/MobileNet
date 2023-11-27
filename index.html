@@ -1,0 +1,38 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><link rel="icon" href="data:">
+<title>画像分類 - TensorFlow.js</title>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet"></script>
+</head>
+<body style="text-align: center; margin: 0;">
+
+<h1>画像分類 - TensorFlow.js</h1>
+<video autoplay playsinline muted id="webcamElement" width="400" height="300"></video>
+<div id="divout">loading...</div>
+<hr>
+<a href=https://codelabs.developers.google.com/codelabs/tensorflowjs-teachablemachine-codelab?hl=ja#0>TensorFlow.js 転移学習による画像分類器</a><br>
+
+<script type="module">
+import { MOBILENET_EN2JA } from "./MOBILENET.js";
+
+const net = await mobilenet.load();
+
+const webcam = await tf.data.webcam(webcamElement);
+for (;;) {
+  const img = await webcam.capture();
+  const result = await net.classify(img);
+  img.dispose();
+
+  const r2n = (res) => {
+    const ja = MOBILENET_EN2JA[res.className];
+    const name = ja || res.className;
+    const prob = Math.floor(res.probability * 100) + "%";
+    return prob + " "  + name;
+  };
+  const res = result.sort((a, b) => a.className.localeCompare(b.className)).map(i => r2n(i));
+  divout.innerHTML = res.join("<br");
+
+  await tf.nextFrame();
+}
+</script>
+</body>
+</html>
