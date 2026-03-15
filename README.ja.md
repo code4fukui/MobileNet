@@ -1,6 +1,6 @@
 # MobileNet
 
-TensorFlow.jsを使った、カメラ入力に対する画像分類デモ。
+TensorFlow.jsを使った、カメラ入力に対する画像分類デモアプリケーションです。
 
 ## デモ
 https://code4fukui.github.io/MobileNet/
@@ -17,4 +17,4 @@ https://code4fukui.github.io/MobileNet/
 ブラウザで上記デモページを開くと、カメラ入力に対する分類結果が表示されます。
 
 ## ライセンス
-MITライセンスです。
+MITライセンスのオープンソースプロジェクトです。

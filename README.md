@@ -1,5 +1,7 @@
 # MobileNet
 
+> 日本語のREADMEはこちらです: [README.ja.md](README.ja.md)
+
 MobileNet is a TensorFlow.js-based image classification web application.
 
 ## Demo
