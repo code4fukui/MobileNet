@@ -25,4 +25,4 @@ You can try the live demo at https://code4fukui.github.io/MobileNet/
 The image classification is powered by the pre-trained MobileNet model, which is loaded from the TensorFlow.js library.
 
 ## License
-The project is released under the MIT License.
+MIT License — see [LICENSE](LICENSE).
